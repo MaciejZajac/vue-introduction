@@ -6,7 +6,6 @@
     </div>
     <ul>
       <li v-for="item in results" :key="item.data[0].nasa_id">
-        <p>{{ console.log("item", item)}}</p>
         <p>{{ item.data[0].description }}</p>
       </li>
     </ul>
@@ -32,7 +31,7 @@ export default {
       axios
         .get(`${API}?q=${this.searchValue}&media_type=image`)
         .then(response => {
-          this.response = response.data.collection.items;
+          this.results = response.data.collection.items;
         })
         .catch(err => console.log(err));
     }, 500)
