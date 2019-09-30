@@ -8,4 +8,12 @@
   </div>
 </template>
 
-<style lang="scss" scoped />
+<style lang="scss" scoped>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Courier New", Courier, monospace;
+}
+</style>

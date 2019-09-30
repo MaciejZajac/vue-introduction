@@ -1,7 +1,9 @@
 <template>
-  <div class="wrapper">
-    <Claim />
-    <SearchInput />
+  <div class="searchWrapper">
+    <div class="search">
+      <label for="search">Search</label>
+      <input id="search" name="search" v-model="searchValue" @input="handleInput" />
+    </div>
   </div>
 </template>
 
@@ -9,15 +11,13 @@
 import axios from "axios";
 import debounce from "lodash.debounce";
 import Claim from "@/components/Claim";
-import SearchInput from "@/components/SearchInput";
 
 const API = "https://images-api.nasa.gov/search";
 
 export default {
   name: "Search",
   components: {
-    Claim,
-    SearchInput
+    Claim
   },
   data() {
     return {
@@ -39,24 +39,10 @@ export default {
 </script>
 
 <style scoped>
-.wrapper {
+.searchWrapper {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin: 0;
-  padding: 30px;
-  width: 100%;
-}
-
-.search {
-  display: flex;
-  flex-direction: column;
-  width: 300px;
-}
-
-label {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  width: 250px;
 }
 
 input {
